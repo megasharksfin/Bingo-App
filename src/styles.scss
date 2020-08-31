@@ -1,0 +1,58 @@
+@import '~bootstrap/scss/bootstrap';
+
+$primary-color: #005CB9;
+$secondary-color: #6CAE66;
+$warn-color: #FB747C;
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+}
+
+.component-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.primary-font{
+  color: $primary-color;
+}
+
+.primary-bg-color{
+  background-color: $primary-color;
+  color: white;
+}
+
+.primary-bg-color:hover{
+  background-color: $primary-color;
+  color: white;
+}
+
+.secondary-bg-color{
+  background-color: $secondary-color;
+  color: white;
+}
+
+.secondary-bg-color:hover{
+  background-color: $secondary-color;
+  color: white;
+}
+
+.warn-bg-color{
+  background-color: #FB747C;
+  color: white;
+}
+
+.warn-bg-color:hover{
+  background-color: #FB747C;
+  color: white;
+}
+
+.warn-color{
+  color: #FB747C;
+}

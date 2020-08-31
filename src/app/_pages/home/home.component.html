@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <h3>
+    Welcome to the <br />
+    <span class="primary-font"> Clorox </span> Bingo Game!
+  </h3>
+  <button class="btn primary-bg-color" (click)="getStarted()" *ngIf="getStartedState"> Get Started </button>
+  <app-role-selection
+    *ngIf="roleSelectionShown"
+    (roleSelection)="roleSelection($event)"></app-role-selection>
+  <app-enter-username
+    *ngIf="enterUsername"
+    [usernameMessage]="usernameMessage"
+    [selectedRole]="selectedRole"
+    (back)="back()"></app-enter-username>
+  <!-- <div class="footer">
+    <img src="../../../../assets/images/brandlogo-bug.png" alt="The Clorox Company">
+  </div> -->
+</div>

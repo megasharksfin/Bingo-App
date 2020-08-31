@@ -1,0 +1,16 @@
+h6{
+  align-self: center;
+}
+
+.buttons-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-self: center;
+  margin-top: 15px;
+
+  :first-child{
+    margin-bottom: 15px;
+  }
+}

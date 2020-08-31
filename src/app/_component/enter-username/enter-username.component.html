@@ -1,0 +1,9 @@
+<form class="component-wrapper" (ngSubmit)="enterUsername()">
+  <h6> {{ usernameMessage }} </h6>
+  <input type="text" class="textfield form-control" placeholder="Username" [formControl]="username">
+  <small class="warn-color" *ngIf="isSubmitted && (username.invalid || isSpaceOnly)"> Username is invalid. </small>
+  <div class="buttons-wrapper">
+    <button type="submit" class="btn primary-bg-color"> Enter! </button>
+    <button type="button" class="btn warn-bg-color" (click)="goBack()"> Back </button>
+  </div>
+</form>

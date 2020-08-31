@@ -1,0 +1,21 @@
+h6{
+  align-self: center;
+}
+
+input{
+  margin: 15px 0;
+}
+
+.buttons-wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  :first-child{
+    margin-right: 15px;
+  }
+}
+
+small{
+  margin-bottom: 15px;
+}
