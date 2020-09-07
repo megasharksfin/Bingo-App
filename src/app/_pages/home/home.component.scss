@@ -9,7 +9,13 @@ button.btn{
 }
 
 .footer{
+  align-self: stretch;
   margin: 0 0 15px 15px;
+  
+ > img{
+    height: 67px;
+    width: 200px;
+  }
 }
 
 app-role-selection, app-enter-username{

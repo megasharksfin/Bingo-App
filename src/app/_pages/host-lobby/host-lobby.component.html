@@ -1,10 +1,13 @@
 <div class="wrapper">
   <h5> Participants </h5>
-  <div class="participants-wrapper primary-bg-color" *ngIf="!!users">
-    <span class="participant" *ngFor="let user of users"> {{ user }} </span>
+  <div class="participants-wrapper primary-bg-color">
+    <span class="participant" *ngFor="let user of users"> {{ user.username }} </span>
   </div>
   <div class="component-wrapper">
-    <span class="message" *ngIf="!!hostname"> Hello, {{ hostname }}! You are the game master. Click start to begin the bingo! </span>
-    <button class="btn secondary-bg-color"> Start! </button>
+    <span class="message" *ngIf="!!hostname"> Hello, {{ hostname?.username }}! You are the game master. Click start to begin the bingo! </span>
+    <button type="button" class="btn secondary-bg-color" (click)="startGame()"> Start! </button>
+  </div>
+  <div class="footer">
+    <img src="../../../assets/brandlogo-bug.png" alt="The Clorox Company">
   </div>
 </div>

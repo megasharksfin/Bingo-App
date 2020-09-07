@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './_pages/home/home.component';
 import { HostLobbyComponent } from './_pages/host-lobby/host-lobby.component';
 import { ParticipantLobbyComponent } from './_pages/participant-lobby/participant-lobby.component';
+import { HostGameComponent } from './_pages/host-game/host-game.component';
 
 const routes: Routes = [
   {
@@ -13,7 +14,8 @@ const routes: Routes = [
     ],
   },
   { path: 'host-lobby', component: HostLobbyComponent },
-  { path: 'participant-lobby', component: ParticipantLobbyComponent },
+  { path: 'participant-game', component: ParticipantLobbyComponent },
+  { path: 'host-game', component: HostGameComponent },
 ];
 
 @NgModule({

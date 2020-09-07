@@ -1,0 +1,29 @@
+<div class="wrapper">
+  <h2>
+    <span class="primary-font">CLOROX</span> BINGO GAME
+  </h2>
+  <button type="button" class="btn primary-bg-color" (click)="generateBingoNumber()"> Generate number! </button>
+  <div class="number-generated" *ngIf="!!generatedNumber">
+    <span class="letter"> {{ generatedNumber?.letter }} </span>
+    <span class="number"> {{ generatedNumber?.number }} </span>
+  </div>
+
+  <ng-template #content let-modal>
+    <div class="modal-body">
+      <span>
+        {{ playerBingo?.username }} just pressed the bingo button! <br />
+        Please confirm if they have bingo-ed!
+      </span>
+
+      <div class="buttons-wrapper">
+        <button type="button" class="btn primary-bg-color" (click)="endGame()"> Confirm and start a new game! </button>
+        <button type="button" class="btn warn-bg-color" (click)="notBingo(modal)"> Not a bingo. Continue the game. </button>
+      </div>
+    </div>
+  </ng-template>
+
+  <div class="footer">
+    <img src="../../../assets/brandlogo-bug.png" alt="The Clorox Company">
+    <button class="btn warn-bg-color" (click)="endGame()"> End Game </button>
+  </div>
+</div>
