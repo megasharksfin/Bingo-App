@@ -6,7 +6,7 @@ h5{
   display: grid;
   column-gap: 15px;
   row-gap: 15px;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(10, 1fr);
   grid-template-rows: auto;
   max-height: 50vh;
   overflow-y: auto;
@@ -23,7 +23,18 @@ h5{
 }
 
 .component-wrapper{
+  margin-bottom: auto;
   > :first-child{
     margin-bottom: 15px;
+  }
+}
+
+.footer{
+  align-self: stretch;
+  margin: 0 0 15px 15px;
+  
+  > img{
+    height: 67px;
+    width: 200px;
   }
 }

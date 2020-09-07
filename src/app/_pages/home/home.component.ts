@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GameService } from 'src/app/_services/game.service';
 
 @Component({
   selector: 'app-home',
@@ -11,12 +12,40 @@ export class HomeComponent implements OnInit {
   enterUsername = false;
   usernameMessage: string;
   selectedRole: string;
-  constructor() { }
+  hasStarted: boolean;
+  apiCall: any;
+  constructor(
+    private gameService: GameService,
+  ) { }
 
   ngOnInit(): void {
+    this.apiCall = setInterval(() => {
+      this.getGameStatus();
+    }, 500);
+  }
+
+  getGameStatus(): void {
+    this.gameService.getGameStatus()
+      .subscribe((data) => {
+        if (data.status > 0) {
+          this.hasStarted = true;
+          return;
+        }
+
+        this.hasStarted = false;
+      }, (error) => {
+        const { message } = error;
+        alert(message);
+      });
   }
 
   getStarted(): void {
+    if (this.hasStarted) {
+      alert('Sorry, the game has already started. Please wait for the game to finish and try again.');
+      return;
+    }
+
+    clearInterval(this.apiCall);
     this.roleSelectionShown = true;
     this.getStartedState = false;
   }

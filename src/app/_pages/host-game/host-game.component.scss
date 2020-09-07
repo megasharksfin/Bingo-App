@@ -1,0 +1,59 @@
+h2{
+  margin-top: 15px;
+}
+
+.btn{
+  margin-top: 5%;
+}
+
+.number-generated{
+  border: solid 3px black;
+  border-radius: 50%;
+  padding: 2% 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+
+  > span{
+    font-size: 3em;
+    font-weight: 500;
+  }
+}
+
+.footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  margin-top: auto;
+  padding: 0 15px 15px;
+  
+ > img{
+    height: 67px;
+    width: 200px;
+  }
+}
+
+.modal-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  > span{
+    text-align: center;
+  }
+}
+
+.buttons-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+
+  >:first-child{
+    margin-right: 15px;
+  }
+}

@@ -1,1 +1,123 @@
-<p>participant-lobby works!</p>
+<div class="wrapper">
+  <h6 *ngIf="!isStarted">
+    This is your bingo card. Please wait while we are still waiting for more participants... <br />
+    <span class="warn-color"> Do not refresh your page from this point to avoid disqualification. </span>
+  </h6>
+  <h6 *ngIf="isStarted">
+    The game has started! <br />
+    If the number shown below matches a number on your card, click the number! <br />
+    Press the bingo button once you think you have bingo-ed!
+  </h6>
+  <div class="current-number" *ngIf="!!currentNumber && isStarted">
+    <h5> {{ currentNumber?.letter }} </h5>
+    <h5> {{ currentNumber?.number }} </h5>
+  </div>
+  <div class="bingo-card">
+    <div class="column">
+      <h2 class="letter"> C </h2>
+      <div class="box" *ngFor="let number of bingoCard?.bingoC">
+        <button
+          type="button"
+          class="number-btn"
+          [disabled]="!isStarted || number?.disabled"
+          (click)="isBingoNumber(number)"
+          [ngClass]="{ 'strikethrough': number.disabled }"> {{ number.number }} </button>
+      </div>
+    </div>
+    <div class="column">
+      <h2 class="letter"> L </h2>
+      <div class="box" *ngFor="let number of bingoCard?.bingoL">
+        <button
+          type="button"
+          class="number-btn"
+          [disabled]="!isStarted || number?.disabled"
+          (click)="isBingoNumber(number)"
+          [ngClass]="{ 'strikethrough': number.disabled }"> {{ number.number }} </button>
+      </div>
+    </div>
+    <div class="column">
+      <h2 class="letter"> O </h2>
+      <div class="box">
+        <button
+          type="button"
+          class="number-btn"
+          [disabled]="!isStarted || bingoCard?.bingoO[0]?.disabled"
+          (click)="isBingoNumber(bingoCard?.bingoO[0])"
+          [ngClass]="{ 'strikethrough': bingoCard?.bingoO[0].disabled }"> {{ bingoCard?.bingoO[0].number }} </button>
+      </div>
+      <div class="box">
+        <button
+          type="button"
+          class="number-btn"
+          [disabled]="!isStarted || bingoCard?.bingoO[1]?.disabled"
+          (click)="isBingoNumber(bingoCard?.bingoO[1])"
+          [ngClass]="{ 'strikethrough': bingoCard?.bingoO[1].disabled }"> {{ bingoCard?.bingoO[1].number }} </button>
+      </div>
+      <div class="box">
+        <div class="number-btn">
+          <img class="center-img" src="../../../assets/827-8276797_clorox-logo-clorox-company.png" alt="Clorox">
+        </div>
+      </div>
+      <div class="box">
+        <button
+          type="button"
+          class="number-btn"
+          [disabled]="!isStarted || bingoCard?.bingoO[2]?.disabled"
+          (click)="isBingoNumber(bingoCard?.bingoO[2])"
+          [ngClass]="{ 'strikethrough': bingoCard?.bingoO[2].disabled }"> {{ bingoCard?.bingoO[2].number }} </button>
+      </div>
+      <div class="box">
+        <button
+          type="button"
+          class="number-btn"
+          [disabled]="!isStarted || bingoCard?.bingoO[3]?.disabled"
+          (click)="isBingoNumber(bingoCard?.bingoO[3])"
+          [ngClass]="{ 'strikethrough': bingoCard?.bingoO[3].disabled }"> {{ bingoCard?.bingoO[3].number }} </button>
+      </div>
+    </div>
+    <div class="column">
+      <h2 class="letter"> R </h2>
+      <div class="box" *ngFor="let number of bingoCard?.bingoR">
+        <button
+          type="button"
+          class="number-btn"
+          [disabled]="!isStarted || number?.disabled"
+          (click)="isBingoNumber(number)"
+          [ngClass]="{ 'strikethrough': number.disabled }"> {{ number.number }} </button>
+      </div>
+    </div>
+    <div class="column">
+      <h2 class="letter"> X </h2>
+      <div class="box" *ngFor="let number of bingoCard?.bingoX">
+        <button
+          type="button"
+          class="number-btn"
+          [disabled]="!isStarted || number?.disabled"
+          (click)="isBingoNumber(number)"
+          [ngClass]="{ 'strikethrough': number.disabled }"> {{ number.number }} </button>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #content let-modal>
+    <div class="modal-body">
+      <h6>
+        {{ currentUser.userId === playerBingo?.userId ? 'You' : playerBingo?.username }} just pressed the bingo button! <br />
+        Send a screenshot of your bingo card to the game master <br />
+        and wait for his confirmation.
+      </h6>
+    </div>
+    <div class="modal-footer">
+      <span> This modal will automatically close once the game master has made an action. </span>
+    </div>
+  </ng-template>
+  
+
+  <div class="footer">
+    <img src="../../../assets/brandlogo-bug.png" alt="The Clorox Company">
+    <div class="buttons-wrapper">
+      <button type="button" class="btn warn-bg-color" (click)="quitGame()"> Quit Game </button>
+      <button type="button" class="btn warn-bg-color bingo shadow" (click)="hasBingo(content)"  *ngIf="isStarted"> BINGO! </button>
+    </div>
+  </div>
+</div>
